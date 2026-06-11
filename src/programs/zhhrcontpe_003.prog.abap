@@ -56,7 +56,8 @@ START-OF-SELECTION.
         pi_logo_img      = lv_logo
         ps_metadata      = ls_metadata ).
 
-      MESSAGE s042(zhr_contpe) WITH xstrlen( lv_pdf ).
+      DATA(lv_pdf_size) = xstrlen( lv_pdf ).
+      MESSAGE s042(zhr_contpe) WITH lv_pdf_size.
 
       IF p_down = abap_true.
         DATA(lv_filename) = |CONTPE_TEST_{ sy-datum }_{ sy-uzeit }.pdf|.
