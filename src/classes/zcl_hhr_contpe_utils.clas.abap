@@ -20,7 +20,7 @@ CLASS zcl_hhr_contpe_utils DEFINITION
 
     CLASS-METHODS format_amount
       IMPORTING
-        pi_amount   TYPE p LENGTH 15 DECIMALS 2
+        pi_amount   TYPE dmbtr
         pi_currency TYPE waers
         pi_format   TYPE zde_contpe_format_pattern OPTIONAL
       RETURNING
