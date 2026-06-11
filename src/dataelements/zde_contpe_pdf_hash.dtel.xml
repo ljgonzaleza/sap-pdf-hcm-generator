@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DTEL" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD04V>
+    <ROLLNAME>ZDE_CONTPE_PDF_HASH</ROLLNAME>
+    <DDLANGUAGE>S</DDLANGUAGE>
+    <DOMNAME>ZDO_CONTPE_PDF_HASH</DOMNAME>
+    <HEADLEN>20</HEADLEN>
+    <SCRLEN1>10</SCRLEN1>
+    <SCRLEN2>15</SCRLEN2>
+    <SCRLEN3>20</SCRLEN3>
+    <DDTEXT>CONTPE - Hash SHA256 PDF</DDTEXT>
+    <REPTEXT>Hash PDF</REPTEXT>
+    <SCRTEXT_S>Hash</SCRTEXT_S>
+    <SCRTEXT_M>Hash PDF</SCRTEXT_M>
+    <SCRTEXT_L>Hash SHA256 PDF</SCRTEXT_L>
+    <DTELMASTER>S</DTELMASTER>
+    <DATATYPE>CHAR</DATATYPE>
+    <LENG>000064</LENG>
+    <OUTPUTLEN>000064</OUTPUTLEN>
+   </DD04V>
+  </asx:values>
+ </asx:abap>
+</abapGit>

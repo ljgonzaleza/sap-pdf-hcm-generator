@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZHR_CONTPE</ARBGB>
+    <MASTERLANG>S</MASTERLANG>
+    <STEXT>CONTPE - Mensajes generador PDF HCM</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>S</SPRSL>
+     <ARBGB>ZHR_CONTPE</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Sin autorización para la transacción &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZHR_CONTPE</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>No authorization for transaction &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZHR_CONTPE</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Sem autorização para a transação &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>S</SPRSL>
+     <ARBGB>ZHR_CONTPE</ARBGB>
+     <MSGNR>010</MSGNR>
+     <TEXT>Error en generación de documento: &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZHR_CONTPE</ARBGB>
+     <MSGNR>010</MSGNR>
+     <TEXT>Document generation error: &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZHR_CONTPE</ARBGB>
+     <MSGNR>010</MSGNR>
+     <TEXT>Erro na geração do documento: &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>S</SPRSL>
+     <ARBGB>ZHR_CONTPE</ARBGB>
+     <MSGNR>020</MSGNR>
+     <TEXT>Error al navegar a aplicación Fiori</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZHR_CONTPE</ARBGB>
+     <MSGNR>020</MSGNR>
+     <TEXT>Error navigating to Fiori application</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZHR_CONTPE</ARBGB>
+     <MSGNR>020</MSGNR>
+     <TEXT>Erro ao navegar para aplicação Fiori</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>S</SPRSL>
+     <ARBGB>ZHR_CONTPE</ARBGB>
+     <MSGNR>030</MSGNR>
+     <TEXT>Documento &amp;1 no encontrado</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZHR_CONTPE</ARBGB>
+     <MSGNR>030</MSGNR>
+     <TEXT>Document &amp;1 not found</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZHR_CONTPE</ARBGB>
+     <MSGNR>030</MSGNR>
+     <TEXT>Documento &amp;1 não encontrado</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_TRAN" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <TSTC>
+    <TCODE>ZHHRTCONTPE_772</TCODE>
+    <PGMNA>ZHHRCONTPE_772</PGMNA>
+    <DYPNO>1000</DYPNO>
+    <CINFO>0000000000</CINFO>
+   </TSTC>
+   <TSTCC>
+    <TCODE>ZHHRTCONTPE_772</TCODE>
+    <S_WEBGUI>1</S_WEBGUI>
+   </TSTCC>
+   <TSTCT>
+    <SPRSL>S</SPRSL>
+    <TCODE>ZHHRTCONTPE_772</TCODE>
+    <TTEXT>CONTPE - Consultar PDFs HCM</TTEXT>
+   </TSTCT>
+   <TSTCT>
+    <SPRSL>E</SPRSL>
+    <TCODE>ZHHRTCONTPE_772</TCODE>
+    <TTEXT>CONTPE - Display HCM PDF history</TTEXT>
+   </TSTCT>
+   <TSTCT>
+    <SPRSL>P</SPRSL>
+    <TCODE>ZHHRTCONTPE_772</TCODE>
+    <TTEXT>CONTPE - Consultar PDFs HCM</TTEXT>
+   </TSTCT>
+  </asx:values>
+ </asx:abap>
+</abapGit>

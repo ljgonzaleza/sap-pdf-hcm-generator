@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_TRAN" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <TSTC>
+    <TCODE>ZHHRTCONTPE_770</TCODE>
+    <PGMNA>ZHHRCONTPE_770</PGMNA>
+    <DYPNO>1000</DYPNO>
+    <CINFO>0000000000</CINFO>
+   </TSTC>
+   <TSTCC>
+    <TCODE>ZHHRTCONTPE_770</TCODE>
+    <S_WEBGUI>1</S_WEBGUI>
+   </TSTCC>
+   <TSTCT>
+    <SPRSL>S</SPRSL>
+    <TCODE>ZHHRTCONTPE_770</TCODE>
+    <TTEXT>CONTPE - Mant. plantillas PDF</TTEXT>
+   </TSTCT>
+   <TSTCT>
+    <SPRSL>E</SPRSL>
+    <TCODE>ZHHRTCONTPE_770</TCODE>
+    <TTEXT>CONTPE - Maintain PDF templates</TTEXT>
+   </TSTCT>
+   <TSTCT>
+    <SPRSL>P</SPRSL>
+    <TCODE>ZHHRTCONTPE_770</TCODE>
+    <TTEXT>CONTPE - Manut. modelos PDF</TTEXT>
+   </TSTCT>
+  </asx:values>
+ </asx:abap>
+</abapGit>

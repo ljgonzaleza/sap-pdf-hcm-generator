@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DEVC" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DEVC>
+    <CPROJECT>ZLOCAL</CPROJECT>
+    <DEVCLASS>ZHR_CONTPE</DEVCLASS>
+    <DLVUNIT>LOCAL</DLVUNIT>
+    <COMPONENT/>
+    <PACKAGE>ZHR_CONTPE</PACKAGE>
+    <MAINPACK/>
+    <PDEVCLASS/>
+    <PARENTCL/>
+    <PPACKAGE/>
+    <PAKNOCHECK>X</PAKNOCHECK>
+    <CONSREQ/>
+    <CREATED_ON>2026-06-11</CREATED_ON>
+    <CREATED_AT>11:46:00</CREATED_AT>
+   </DEVC>
+   <TDEVC>
+    <DEVCLASS>ZHR_CONTPE</DEVCLASS>
+    <INTSYS>DEV</INTSYS>
+    <CONSYS>SAP</CONSYS>
+    <CTEXT>CONTPE - Generador PDF HCM</CTEXT>
+   </TDEVC>
+  </asx:values>
+ </asx:abap>
+</abapGit>

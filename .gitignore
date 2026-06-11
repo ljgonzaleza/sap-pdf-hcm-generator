@@ -1,0 +1,30 @@
+# abapGit
+.abapgit/
+
+# Node modules (Fiori apps)
+fiori-apps/*/node_modules/
+fiori-apps/*/dist/
+fiori-apps/*/.tmp/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# SAP Workbench exports
+*.slnk
+*.txt.bak
+
+# Temporary files
+*.tmp
+temp/
