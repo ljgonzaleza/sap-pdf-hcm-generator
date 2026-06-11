@@ -7,7 +7,7 @@
 CLASS zcl_hhr_contpe_config DEFINITION
   PUBLIC
   FINAL
-  CREATE PUBLIC.
+  CREATE PRIVATE.
 
   PUBLIC SECTION.
     CLASS-METHODS get_instance
@@ -18,7 +18,7 @@ CLASS zcl_hhr_contpe_config DEFINITION
       IMPORTING
         pi_param_key TYPE zde_contpe_param_key
       RETURNING
-        VALUE(re_value) TYPE string.
+        VALUE(re_value) TYPE zde_contpe_text.
 
     METHODS refresh_cache.
 
@@ -29,7 +29,7 @@ CLASS zcl_hhr_contpe_config DEFINITION
     TYPES:
       BEGIN OF ty_config_entry,
         param_key   TYPE zde_contpe_param_key,
-        param_value TYPE string,
+        param_value TYPE zde_contpe_text,
       END OF ty_config_entry,
       tt_config_entry TYPE HASHED TABLE OF ty_config_entry WITH UNIQUE KEY param_key.
 
@@ -53,32 +53,20 @@ CLASS zcl_hhr_contpe_config IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD get_parameter.
-    DATA(ls_entry) = VALUE ty_config_entry( ).
-    READ TABLE mt_cache INTO ls_entry WITH KEY param_key = pi_param_key.
+    READ TABLE mt_cache WITH KEY param_key = pi_param_key INTO DATA(ls_entry).
     IF sy-subrc = 0.
       re_value = ls_entry-param_value.
     ENDIF.
   ENDMETHOD.
 
   METHOD refresh_cache.
-    CLEAR mt_cache.
     load_cache( ).
   ENDMETHOD.
 
   METHOD load_cache.
-    DATA lt_config TYPE STANDARD TABLE OF zhr_contpe_cfg.
-
-    SELECT param_key
-           param_value
+    SELECT param_key, param_value
       FROM zhr_contpe_cfg
-      INTO CORRESPONDING FIELDS OF TABLE @lt_config.
-
-    CLEAR mt_cache.
-    LOOP AT lt_config ASSIGNING FIELD-SYMBOL(<ls_config>).
-      INSERT VALUE #(
-        param_key   = <ls_config>-param_key
-        param_value = <ls_config>-param_value ) INTO TABLE mt_cache.
-    ENDLOOP.
+      INTO TABLE @mt_cache.
   ENDMETHOD.
 
 ENDCLASS.
