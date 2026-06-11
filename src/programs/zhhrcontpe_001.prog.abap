@@ -50,12 +50,12 @@ START-OF-SELECTION.
       CONTINUE.
     ENDIF.
 
-    INSERT zhr_contpe_cfg FROM VALUE #(
+    INSERT zhr_contpe_cfg FROM @( VALUE #(
       param_key   = <ls_seed>-param_key
       param_value = <ls_seed>-param_value
       description = <ls_seed>-description
       changed_by  = sy-uname
-      changed_at  = lv_timestamp ).
+      changed_at  = lv_timestamp ) ).
 
     IF sy-subrc = 0.
       lv_inserted = lv_inserted + 1.

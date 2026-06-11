@@ -57,7 +57,7 @@ START-OF-SELECTION.
       CONTINUE.
     ENDIF.
 
-    INSERT zhr_contpe_fmap FROM VALUE #(
+    INSERT zhr_contpe_fmap FROM @( VALUE #(
       placeholder    = <ls_seed>-placeholder
       spras          = lv_spras
       description    = <ls_seed>-description
@@ -73,7 +73,7 @@ START-OF-SELECTION.
       created_by     = sy-uname
       created_at     = lv_timestamp
       changed_by     = sy-uname
-      changed_at     = lv_timestamp ).
+      changed_at     = lv_timestamp ) ).
 
     IF sy-subrc = 0.
       lv_inserted = lv_inserted + 1.

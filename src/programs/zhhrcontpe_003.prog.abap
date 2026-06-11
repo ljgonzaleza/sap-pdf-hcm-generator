@@ -74,7 +74,7 @@ START-OF-SELECTION.
             header_not_allowed      = 7
             separator_not_allowed   = 8
             filesize_not_allowed    = 9
-            dp_error_general        = 10
+            dp_error_create         = 10
             OTHERS                  = 11 ).
 
         IF sy-subrc = 0.
