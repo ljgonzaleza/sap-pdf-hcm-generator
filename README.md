@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Generador de Documentos PDF HCM - SAP S/4HANA
 
 ## Descripción
@@ -72,3 +73,7 @@ Ver [docs/installation.md](docs/installation.md)
 Proyecto: **CONTPE** — Paquete `ZHR_CONTPE`
 País: Perú (MOLGA PE)
 Versión: 1.0.0-alpha
+=======
+# sap-pdf-hcm-generator
+Generador de PDF para contratos Perú
+>>>>>>> origin/main
