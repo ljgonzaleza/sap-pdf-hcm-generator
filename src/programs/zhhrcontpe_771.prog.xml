@@ -5,15 +5,39 @@
    <PROGDIR>
     <NAME>ZHHRCONTPE_771</NAME>
     <SUBC>1</SUBC>
-    <RLOAD>E</RLOAD>
+    <RLOAD>S</RLOAD>
     <FIXPT>X</FIXPT>
     <UCCHECK>X</UCCHECK>
    </PROGDIR>
    <TPOOL>
     <item>
      <ID>R</ID>
-     <ENTRY>CONTPE - Launcher Fiori generación PDF</ENTRY>
+     <ENTRY>CONTPE - Generación documento PDF</ENTRY>
      <LENGTH>40</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>001</KEY>
+     <ENTRY>Datos del documento</ENTRY>
+     <LENGTH>20</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>002</KEY>
+     <ENTRY>Indique empleado y/o plantilla para pre-cargar la app Fiori de generación</ENTRY>
+     <LENGTH>72</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>P_PERNR</KEY>
+     <ENTRY>Número de personal</ENTRY>
+     <LENGTH>20</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>P_TPLID</KEY>
+     <ENTRY>ID plantilla PDF</ENTRY>
+     <LENGTH>20</LENGTH>
     </item>
    </TPOOL>
   </asx:values>

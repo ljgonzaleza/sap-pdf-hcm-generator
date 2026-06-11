@@ -11,9 +11,14 @@
 REPORT zhhrcontpe_003.
 
 *--------------------------------------------------------------------*
-* Parámetros
+* Pantalla de selección 1000
 *--------------------------------------------------------------------*
+SELECTION-SCREEN BEGIN OF BLOCK b01 WITH FRAME TITLE text-001.
 PARAMETERS p_down AS CHECKBOX DEFAULT 'X'.
+SELECTION-SCREEN END OF BLOCK b01.
+
+SELECTION-SCREEN COMMENT /1(80) text-002.
+SELECTION-SCREEN COMMENT /2(80) text-003.
 
 *--------------------------------------------------------------------*
 * Inicio de procesamiento
@@ -51,8 +56,7 @@ START-OF-SELECTION.
         pi_logo_img      = lv_logo
         ps_metadata      = ls_metadata ).
 
-      WRITE: / 'PDF generado correctamente.'.
-      WRITE: / 'Tamaño (bytes):', xstrlen( lv_pdf ).
+      MESSAGE s042(zhr_contpe) WITH xstrlen( lv_pdf ).
 
       IF p_down = abap_true.
         DATA(lv_filename) = |CONTPE_TEST_{ sy-datum }_{ sy-uzeit }.pdf|.
@@ -78,13 +82,13 @@ START-OF-SELECTION.
             OTHERS                  = 11 ).
 
         IF sy-subrc = 0.
-          WRITE: / 'Descargado:', lv_filename.
+          MESSAGE s043(zhr_contpe) WITH lv_filename.
         ELSE.
-          WRITE: / 'No se pudo descargar (GUI). Use CG3Y si ejecuta en servidor.'.
+          MESSAGE s044(zhr_contpe).
         ENDIF.
       ENDIF.
 
     CATCH zcx_hhr_contpe_render_error INTO DATA(lx_render).
-      WRITE: / 'Error ADS:', lx_render->error_message.
+      MESSAGE lx_render TYPE 'E'.
       RETURN.
   ENDTRY.

@@ -64,7 +64,6 @@ START-OF-SELECTION.
 
   COMMIT WORK.
 
-  WRITE: / 'CONTPE - Configuración inicial cargada.'.
-  WRITE: / 'Registros insertados:', lv_inserted.
+  MESSAGE s040(zhr_contpe) WITH lv_inserted.
 
   zcl_hhr_contpe_config=>get_instance( )->refresh_cache( ).

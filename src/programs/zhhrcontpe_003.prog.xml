@@ -5,7 +5,7 @@
    <PROGDIR>
     <NAME>ZHHRCONTPE_003</NAME>
     <SUBC>1</SUBC>
-    <RLOAD>E</RLOAD>
+    <RLOAD>S</RLOAD>
     <FIXPT>X</FIXPT>
     <UCCHECK>X</UCCHECK>
    </PROGDIR>
@@ -14,6 +14,30 @@
      <ID>R</ID>
      <ENTRY>CONTPE - Prototipo generación ADS</ENTRY>
      <LENGTH>40</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>001</KEY>
+     <ENTRY>Opciones de salida</ENTRY>
+     <LENGTH>20</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>002</KEY>
+     <ENTRY>Prerrequisito: formulario Adobe ZHR_CONTPE_F_001 activo en SFP</ENTRY>
+     <LENGTH>72</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>003</KEY>
+     <ENTRY>Interface de importación: IS_FORM_DATA TYPE ZHR_CONTPE_S_FORM</ENTRY>
+     <LENGTH>72</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>P_DOWN</KEY>
+     <ENTRY>Descargar PDF generado</ENTRY>
+     <LENGTH>25</LENGTH>
     </item>
    </TPOOL>
   </asx:values>

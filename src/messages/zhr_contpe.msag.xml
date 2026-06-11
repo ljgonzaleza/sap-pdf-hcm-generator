@@ -47,6 +47,114 @@
     <T100>
      <SPRSL>S</SPRSL>
      <ARBGB>ZHR_CONTPE</ARBGB>
+     <MSGNR>011</MSGNR>
+     <TEXT>Error en plantilla PDF: &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZHR_CONTPE</ARBGB>
+     <MSGNR>011</MSGNR>
+     <TEXT>PDF template error: &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZHR_CONTPE</ARBGB>
+     <MSGNR>011</MSGNR>
+     <TEXT>Erro no modelo PDF: &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>S</SPRSL>
+     <ARBGB>ZHR_CONTPE</ARBGB>
+     <MSGNR>012</MSGNR>
+     <TEXT>Error al leer datos del empleado: &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZHR_CONTPE</ARBGB>
+     <MSGNR>012</MSGNR>
+     <TEXT>Employee data read error: &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZHR_CONTPE</ARBGB>
+     <MSGNR>012</MSGNR>
+     <TEXT>Erro ao ler dados do empregado: &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>S</SPRSL>
+     <ARBGB>ZHR_CONTPE</ARBGB>
+     <MSGNR>013</MSGNR>
+     <TEXT>Error al renderizar PDF: &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZHR_CONTPE</ARBGB>
+     <MSGNR>013</MSGNR>
+     <TEXT>PDF rendering error: &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZHR_CONTPE</ARBGB>
+     <MSGNR>013</MSGNR>
+     <TEXT>Erro ao renderizar PDF: &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>S</SPRSL>
+     <ARBGB>ZHR_CONTPE</ARBGB>
+     <MSGNR>014</MSGNR>
+     <TEXT>Error al archivar documento: &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZHR_CONTPE</ARBGB>
+     <MSGNR>014</MSGNR>
+     <TEXT>Document archiving error: &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZHR_CONTPE</ARBGB>
+     <MSGNR>014</MSGNR>
+     <TEXT>Erro ao arquivar documento: &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>S</SPRSL>
+     <ARBGB>ZHR_CONTPE</ARBGB>
+     <MSGNR>015</MSGNR>
+     <TEXT>Error en gestión de firmas: &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZHR_CONTPE</ARBGB>
+     <MSGNR>015</MSGNR>
+     <TEXT>Signature management error: &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZHR_CONTPE</ARBGB>
+     <MSGNR>015</MSGNR>
+     <TEXT>Erro na gestão de assinaturas: &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>S</SPRSL>
+     <ARBGB>ZHR_CONTPE</ARBGB>
+     <MSGNR>016</MSGNR>
+     <TEXT>Error en cálculo de campo: &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZHR_CONTPE</ARBGB>
+     <MSGNR>016</MSGNR>
+     <TEXT>Field calculation error: &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZHR_CONTPE</ARBGB>
+     <MSGNR>016</MSGNR>
+     <TEXT>Erro no cálculo de campo: &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>S</SPRSL>
+     <ARBGB>ZHR_CONTPE</ARBGB>
      <MSGNR>020</MSGNR>
      <TEXT>Error al navegar a aplicación Fiori</TEXT>
     </T100>
@@ -79,6 +187,36 @@
      <ARBGB>ZHR_CONTPE</ARBGB>
      <MSGNR>030</MSGNR>
      <TEXT>Documento &amp;1 não encontrado</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>S</SPRSL>
+     <ARBGB>ZHR_CONTPE</ARBGB>
+     <MSGNR>040</MSGNR>
+     <TEXT>Configuración inicial cargada. Registros insertados: &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>S</SPRSL>
+     <ARBGB>ZHR_CONTPE</ARBGB>
+     <MSGNR>041</MSGNR>
+     <TEXT>Catálogo fieldmap cargado. Registros insertados: &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>S</SPRSL>
+     <ARBGB>ZHR_CONTPE</ARBGB>
+     <MSGNR>042</MSGNR>
+     <TEXT>PDF generado correctamente. Tamaño (bytes): &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>S</SPRSL>
+     <ARBGB>ZHR_CONTPE</ARBGB>
+     <MSGNR>043</MSGNR>
+     <TEXT>Archivo descargado: &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>S</SPRSL>
+     <ARBGB>ZHR_CONTPE</ARBGB>
+     <MSGNR>044</MSGNR>
+     <TEXT>No se pudo descargar el PDF (requiere SAP GUI)</TEXT>
     </T100>
    </T100>
   </asx:values>

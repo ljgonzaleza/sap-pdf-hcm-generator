@@ -82,5 +82,4 @@ START-OF-SELECTION.
 
   COMMIT WORK.
 
-  WRITE: / 'CONTPE - Catálogo fieldmap cargado.'.
-  WRITE: / 'Registros insertados:', lv_inserted.
+  MESSAGE s041(zhr_contpe) WITH lv_inserted.

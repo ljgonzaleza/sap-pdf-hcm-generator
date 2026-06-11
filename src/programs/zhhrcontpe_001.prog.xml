@@ -5,7 +5,7 @@
    <PROGDIR>
     <NAME>ZHHRCONTPE_001</NAME>
     <SUBC>1</SUBC>
-    <RLOAD>E</RLOAD>
+    <RLOAD>S</RLOAD>
     <FIXPT>X</FIXPT>
     <UCCHECK>X</UCCHECK>
    </PROGDIR>
@@ -14,6 +14,12 @@
      <ID>R</ID>
      <ENTRY>CONTPE - Carga inicial configuración</ENTRY>
      <LENGTH>40</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>001</KEY>
+     <ENTRY>Carga parámetros iniciales en ZHR_CONTPE_CFG (solo registros nuevos)</ENTRY>
+     <LENGTH>72</LENGTH>
     </item>
    </TPOOL>
   </asx:values>

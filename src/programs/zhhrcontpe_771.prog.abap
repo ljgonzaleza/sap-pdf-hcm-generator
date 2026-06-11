@@ -9,10 +9,14 @@
 REPORT zhhrcontpe_771.
 
 *--------------------------------------------------------------------*
-* Parámetros de selección
+* Pantalla de selección 1000
 *--------------------------------------------------------------------*
+SELECTION-SCREEN BEGIN OF BLOCK b01 WITH FRAME TITLE text-001.
 PARAMETERS p_pernr TYPE persno.
 PARAMETERS p_tplid TYPE zde_contpe_tpl_id.
+SELECTION-SCREEN END OF BLOCK b01.
+
+SELECTION-SCREEN COMMENT /1(80) text-002.
 
 *--------------------------------------------------------------------*
 * Inicio de procesamiento
