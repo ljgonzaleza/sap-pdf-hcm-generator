@@ -40,10 +40,10 @@ CLASS zcl_hhr_contpe_template_engine IMPLEMENTATION.
       pi_language    = pi_language ).
 
     LOOP AT pt_field_values ASSIGNING FIELD-SYMBOL(<ls_value>).
-      REPLACE ALL OCCURRENCES OF |{{ { <ls_value>-placeholder } }}|
-        IN re_html WITH <ls_value>-value.
-      REPLACE ALL OCCURRENCES OF |&lt;&lt;{ <ls_value>-placeholder }&gt;&gt;|
-        IN re_html WITH <ls_value>-value.
+      DATA(lv_pattern_brace) = '{{' && <ls_value>-placeholder && '}}'.
+      DATA(lv_pattern_angle) = '&lt;&lt;' && <ls_value>-placeholder && '&gt;&gt;'.
+      REPLACE ALL OCCURRENCES OF lv_pattern_brace IN re_html WITH <ls_value>-value.
+      REPLACE ALL OCCURRENCES OF lv_pattern_angle IN re_html WITH <ls_value>-value.
     ENDLOOP.
   ENDMETHOD.
 

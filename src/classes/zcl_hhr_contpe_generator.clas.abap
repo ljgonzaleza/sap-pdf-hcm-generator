@@ -21,7 +21,7 @@ CLASS zcl_hhr_contpe_generator DEFINITION
       RETURNING
         VALUE(pe_pdf)    TYPE xstring
       RAISING
-        zcx_hhr_contpe_generation_error.
+        zcx_hhr_contpe_gen_error.
 
     METHODS generate_mass
       IMPORTING
@@ -33,7 +33,7 @@ CLASS zcl_hhr_contpe_generator DEFINITION
       RETURNING
         VALUE(pe_job_id) TYPE zde_contpe_job_id
       RAISING
-        zcx_hhr_contpe_generation_error.
+        zcx_hhr_contpe_gen_error.
 
     METHODS get_document_history
       IMPORTING
@@ -56,7 +56,7 @@ CLASS zcl_hhr_contpe_generator DEFINITION
   PRIVATE SECTION.
     DATA go_template_engine TYPE REF TO zcl_hhr_contpe_template_engine.
     DATA go_data_provider TYPE REF TO zcl_hhr_contpe_data_provider.
-    DATA go_renderer_factory TYPE REF TO zcl_hhr_contpe_renderer_factory.
+    DATA go_renderer_factory TYPE REF TO zcl_hhr_contpe_render_fact.
     DATA go_archiver TYPE REF TO zcl_hhr_contpe_archiver.
     DATA go_validator TYPE REF TO zcl_hhr_contpe_validator.
     DATA go_signature_mgr TYPE REF TO zcl_hhr_contpe_signature_mgr.
@@ -69,13 +69,13 @@ CLASS zcl_hhr_contpe_generator DEFINITION
         pi_template_id  TYPE zde_contpe_tpl_id
         pi_language     TYPE spras
       RAISING
-        zcx_hhr_contpe_generation_error.
+        zcx_hhr_contpe_gen_error.
 
     METHODS wrap_exception
       IMPORTING
         ix_error TYPE REF TO zcx_hhr_contpe_base_error
       RAISING
-        zcx_hhr_contpe_generation_error.
+        zcx_hhr_contpe_gen_error.
 
 ENDCLASS.
 
@@ -135,7 +135,7 @@ CLASS zcl_hhr_contpe_generator IMPLEMENTATION.
     initialize( ).
 
     IF lines( pt_pernr_list ) = 0.
-      RAISE EXCEPTION TYPE zcx_hhr_contpe_generation_error
+      RAISE EXCEPTION TYPE zcx_hhr_contpe_gen_error
         EXPORTING
           error_message = 'Lista de empleados vacía'.
     ENDIF.
@@ -150,7 +150,7 @@ CLASS zcl_hhr_contpe_generator IMPLEMENTATION.
             pi_language    = pi_language
             pi_signature_id = pi_signature_id
             pi_preview     = abap_false ).
-        CATCH zcx_hhr_contpe_generation_error.
+        CATCH zcx_hhr_contpe_gen_error.
           CONTINUE.
       ENDTRY.
     ENDLOOP.
@@ -201,7 +201,7 @@ CLASS zcl_hhr_contpe_generator IMPLEMENTATION.
 
     go_template_engine   = NEW zcl_hhr_contpe_template_engine( ).
     go_data_provider     = NEW zcl_hhr_contpe_data_provider( ).
-    go_renderer_factory  = NEW zcl_hhr_contpe_renderer_factory( ).
+    go_renderer_factory  = NEW zcl_hhr_contpe_render_fact( ).
     go_archiver          = NEW zcl_hhr_contpe_archiver( ).
     go_validator         = NEW zcl_hhr_contpe_validator( ).
     go_signature_mgr     = NEW zcl_hhr_contpe_signature_mgr( ).
@@ -216,7 +216,7 @@ CLASS zcl_hhr_contpe_generator IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD wrap_exception.
-    RAISE EXCEPTION TYPE zcx_hhr_contpe_generation_error
+    RAISE EXCEPTION TYPE zcx_hhr_contpe_gen_error
       EXPORTING
         error_message = ix_error->error_message
         previous      = ix_error.

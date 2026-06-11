@@ -1,10 +1,10 @@
 *&---------------------------------------------------------------------*
-*& Clase   ZCL_HHR_CONTPE_RENDERER_FACTORY
+*& Clase   ZCL_HHR_CONTPE_RENDER_FACT
 *&---------------------------------------------------------------------*
 *& Descripción: CONTPE - Factory motor renderizado PDF
 *& Empresa     LATAM
 *&---------------------------------------------------------------------*
-CLASS zcl_hhr_contpe_renderer_factory DEFINITION
+CLASS zcl_hhr_contpe_render_fact DEFINITION
   PUBLIC
   FINAL
   CREATE PUBLIC .
@@ -18,7 +18,7 @@ CLASS zcl_hhr_contpe_renderer_factory DEFINITION
   PRIVATE SECTION.
 ENDCLASS.
 
-CLASS zcl_hhr_contpe_renderer_factory IMPLEMENTATION.
+CLASS zcl_hhr_contpe_render_fact IMPLEMENTATION.
 
   METHOD get_renderer.
     DATA(lv_renderer) = zcl_hhr_contpe_config=>get_instance( )->get_parameter( 'RENDERER_TYPE' ).

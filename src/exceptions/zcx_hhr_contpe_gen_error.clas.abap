@@ -1,10 +1,10 @@
 *&---------------------------------------------------------------------*
-*& Clase   ZCX_HHR_CONTPE_GENERATION_ERROR
+*& Clase   ZCX_HHR_CONTPE_GEN_ERROR
 *&---------------------------------------------------------------------*
 *& Descripción: CONTPE - Excepción generación documentos PDF
 *& Empresa     LATAM
 *&---------------------------------------------------------------------*
-CLASS zcx_hhr_contpe_generation_error DEFINITION
+CLASS zcx_hhr_contpe_gen_error DEFINITION
   PUBLIC
   INHERITING FROM zcx_hhr_contpe_base_error
   CREATE PUBLIC.
@@ -38,7 +38,7 @@ CLASS zcx_hhr_contpe_generation_error DEFINITION
   PRIVATE SECTION.
 ENDCLASS.
 
-CLASS zcx_hhr_contpe_generation_error IMPLEMENTATION.
+CLASS zcx_hhr_contpe_gen_error IMPLEMENTATION.
 
   METHOD constructor ##ADT_SUPPRESS_GENERATION.
     super->constructor(

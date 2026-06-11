@@ -57,7 +57,7 @@ CLASS zcl_hhr_contpe_fiori_launcher DEFINITION
       IMPORTING
         pi_url TYPE string
       RAISING
-        zcx_hhr_contpe_generation_error.
+        zcx_hhr_contpe_gen_error.
 
 ENDCLASS.
 
@@ -134,9 +134,9 @@ CLASS zcl_hhr_contpe_fiori_launcher IMPLEMENTATION.
         OTHERS             = 7.
 
     IF sy-subrc <> 0.
-      RAISE EXCEPTION TYPE zcx_hhr_contpe_generation_error
+      RAISE EXCEPTION TYPE zcx_hhr_contpe_gen_error
         EXPORTING
-          textid = zcx_hhr_contpe_generation_error=>zhhr_contpe_fiori_nav_error.
+          textid = zcx_hhr_contpe_gen_error=>zhhr_contpe_fiori_nav_error.
     ENDIF.
   ENDMETHOD.
 

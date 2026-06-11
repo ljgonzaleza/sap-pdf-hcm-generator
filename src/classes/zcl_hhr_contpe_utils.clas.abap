@@ -78,10 +78,9 @@ CLASS zcl_hhr_contpe_utils IMPLEMENTATION.
 
   METHOD calculate_hash.
     TRY.
-        DATA(lo_digest) = cl_abap_message_digest=>get_instance( 'SHA256' ).
-        lo_digest->update( EXPORTING data = pi_pdf ).
-        DATA(lv_hash_raw) = lo_digest->get_hash( ).
-        re_hash = lv_hash_raw.
+        re_hash = cl_abap_hmac=>calculate_hash_for_raw(
+          if_algorithm = if_abap_hmac=>co_sha256
+          if_data      = pi_pdf ).
       CATCH cx_root.
         CLEAR re_hash.
     ENDTRY.

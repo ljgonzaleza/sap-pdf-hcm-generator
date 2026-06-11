@@ -32,6 +32,6 @@ START-OF-SELECTION.
 
   TRY.
       zcl_hhr_contpe_fiori_launcher=>launch_generate( pi_params = l_params ).
-    CATCH zcx_hhr_contpe_generation_error INTO DATA(lx_error).
+    CATCH zcx_hhr_contpe_gen_error INTO DATA(lx_error).
       MESSAGE lx_error TYPE 'E'.
   ENDTRY.

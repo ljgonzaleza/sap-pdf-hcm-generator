@@ -16,7 +16,7 @@ CLASS zcl_hhr_contpe_validator DEFINITION
         pi_template_id TYPE zde_contpe_tpl_id
         pi_language    TYPE spras DEFAULT sy-langu
       RAISING
-        zcx_hhr_contpe_generation_error.
+        zcx_hhr_contpe_gen_error.
 
     METHODS validate_template_exists
       IMPORTING
@@ -37,7 +37,7 @@ CLASS zcl_hhr_contpe_validator DEFINITION
       IMPORTING
         pi_message TYPE string
       RAISING
-        zcx_hhr_contpe_generation_error.
+        zcx_hhr_contpe_gen_error.
 ENDCLASS.
 
 CLASS zcl_hhr_contpe_validator IMPLEMENTATION.
@@ -79,7 +79,7 @@ CLASS zcl_hhr_contpe_validator IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD raise_validation_error.
-    RAISE EXCEPTION TYPE zcx_hhr_contpe_generation_error
+    RAISE EXCEPTION TYPE zcx_hhr_contpe_gen_error
       EXPORTING
         error_message = pi_message.
   ENDMETHOD.

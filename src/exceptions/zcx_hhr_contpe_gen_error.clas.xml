@@ -3,14 +3,20 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <VSEOCLASS>
-    <CLSNAME>ZCL_HHR_CONTPE_RENDERER_FACTORY</CLSNAME>
+    <CLSNAME>ZCX_HHR_CONTPE_GEN_ERROR</CLSNAME>
     <LANGU>E</LANGU>
-    <DESCRIPT>CONTPE - Factory motor renderizado PDF</DESCRIPT>
+    <DESCRIPT>CONTPE - Excepcion generacion documentos PDF</DESCRIPT>
+    <CATEGORY>40</CATEGORY>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>
     <UNICODE>X</UNICODE>
    </VSEOCLASS>
+   <SCLAS>
+    <CLSNAME>ZCX_HHR_CONTPE_GEN_ERROR</CLSNAME>
+    <CATEGORY>40</CATEGORY>
+    <SCLS_NAME>ZCX_HHR_CONTPE_BASE_ERROR</SCLS_NAME>
+   </SCLAS>
   </asx:values>
  </asx:abap>
 </abapGit>
