@@ -25,7 +25,7 @@ CLASS zcl_hhr_contpe_generator DEFINITION
 
     METHODS generate_mass
       IMPORTING
-        pt_pernr_list    TYPE zhr_contpe_tt_pernr
+        pt_pernr_list    TYPE zhr_contpe_ttper
         pi_template_id   TYPE zde_contpe_tpl_id
         pi_language      TYPE spras DEFAULT sy-langu
         pi_signature_id  TYPE zde_contpe_signature_id OPTIONAL
@@ -42,7 +42,7 @@ CLASS zcl_hhr_contpe_generator DEFINITION
         pi_date_to       TYPE datum OPTIONAL
         pi_template_id   TYPE zde_contpe_tpl_id OPTIONAL
       RETURNING
-        VALUE(pt_docs)   TYPE zhr_contpe_tt_doc_log.
+        VALUE(pt_docs)   TYPE zhr_contpe_ttdlog.
 
     METHODS retrieve_document
       IMPORTING
@@ -105,7 +105,7 @@ CLASS zcl_hhr_contpe_generator IMPLEMENTATION.
           lv_signature_img = go_signature_mgr->get_signature_image( pi_signature_id ).
         ENDIF.
 
-        DATA(ls_metadata) = VALUE zhr_contpe_s_pdf_metadata(
+        DATA(ls_metadata) = VALUE zhr_contpe_s_pdf(
           pernr          = pi_pernr
           template_id    = pi_template_id
           spras          = pi_language
@@ -170,7 +170,7 @@ CLASS zcl_hhr_contpe_generator IMPLEMENTATION.
            job_id
            status
            error_msg
-      FROM zhr_contpe_doc_log
+      FROM zhr_contpe_dlog
       WHERE ( @pi_pernr IS INITIAL OR pernr = @pi_pernr )
         AND ( @pi_template_id IS INITIAL OR template_id = @pi_template_id )
       INTO CORRESPONDING FIELDS OF TABLE @pt_docs.
@@ -178,7 +178,7 @@ CLASS zcl_hhr_contpe_generator IMPLEMENTATION.
 
   METHOD retrieve_document.
     SELECT SINGLE archiv_id
-      FROM zhr_contpe_doc_log
+      FROM zhr_contpe_dlog
       WHERE document_id = @pi_document_id
       INTO @DATA(lv_archiv_id).
 

@@ -20,7 +20,7 @@ CLASS zcl_hhr_contpe_data_provider DEFINITION
     METHODS get_field_values
       IMPORTING
         pi_pernr         TYPE persno
-        pt_placeholders  TYPE zhr_contpe_tt_placeholder OPTIONAL
+        pt_placeholders  TYPE zhr_contpe_ttplh OPTIONAL
         pi_date          TYPE datum DEFAULT sy-datum
         pi_language      TYPE spras DEFAULT sy-langu
       RETURNING
@@ -45,13 +45,13 @@ CLASS zcl_hhr_contpe_data_provider DEFINITION
         pi_placeholder TYPE zde_contpe_placeholder
         pi_language    TYPE spras
       RETURNING
-        VALUE(rs_fieldmap) TYPE zhr_contpe_fieldmap
+        VALUE(rs_fieldmap) TYPE zhr_contpe_fmap
       RAISING
         zcx_hhr_contpe_data_error.
 
     METHODS resolve_infotype_value
       IMPORTING
-        is_fieldmap TYPE zhr_contpe_fieldmap
+        is_fieldmap TYPE zhr_contpe_fmap
         pi_pernr    TYPE persno
         pi_date     TYPE datum
       RETURNING
@@ -61,7 +61,7 @@ CLASS zcl_hhr_contpe_data_provider DEFINITION
 
     METHODS format_field_value
       IMPORTING
-        is_fieldmap TYPE zhr_contpe_fieldmap
+        is_fieldmap TYPE zhr_contpe_fmap
         pi_raw      TYPE string
       RETURNING
         VALUE(re_value) TYPE string.
@@ -70,7 +70,7 @@ ENDCLASS.
 CLASS zcl_hhr_contpe_data_provider IMPLEMENTATION.
 
   METHOD get_field_values.
-    DATA lt_fieldmap TYPE STANDARD TABLE OF zhr_contpe_fieldmap.
+    DATA lt_fieldmap TYPE STANDARD TABLE OF zhr_contpe_fmap.
 
     IF pt_placeholders IS SUPPLIED AND lines( pt_placeholders ) > 0.
       LOOP AT pt_placeholders ASSIGNING FIELD-SYMBOL(<ls_placeholder>).
@@ -99,7 +99,7 @@ CLASS zcl_hhr_contpe_data_provider IMPLEMENTATION.
              format_pattern
              uppercase
              default_value
-        FROM zhr_contpe_fieldmap
+        FROM zhr_contpe_fmap
         WHERE spras = @pi_language
         INTO CORRESPONDING FIELDS OF TABLE @lt_fieldmap.
 
@@ -146,7 +146,7 @@ CLASS zcl_hhr_contpe_data_provider IMPLEMENTATION.
                   format_pattern
                   uppercase
                   default_value
-      FROM zhr_contpe_fieldmap
+      FROM zhr_contpe_fmap
       WHERE placeholder = @pi_placeholder
         AND spras       = @pi_language
       INTO CORRESPONDING FIELDS OF @rs_fieldmap.

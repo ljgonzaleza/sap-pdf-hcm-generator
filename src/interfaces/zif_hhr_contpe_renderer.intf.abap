@@ -12,7 +12,7 @@ INTERFACE zif_hhr_contpe_renderer
       pi_html          TYPE string
       pi_signature_img TYPE xstring OPTIONAL
       pi_logo_img      TYPE xstring OPTIONAL
-      ps_metadata      TYPE zhr_contpe_s_pdf_metadata OPTIONAL
+      ps_metadata      TYPE zhr_contpe_s_pdf OPTIONAL
     RETURNING
       VALUE(pe_pdf)    TYPE xstring
     RAISING

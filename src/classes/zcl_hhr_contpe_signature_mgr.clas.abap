@@ -32,7 +32,7 @@ CLASS zcl_hhr_contpe_signature_mgr IMPLEMENTATION.
 
   METHOD get_signature_image.
     SELECT SINGLE image_data
-      FROM zhr_contpe_signatures
+      FROM zhr_contpe_sign
       WHERE signature_id = @pi_signature_id
         AND status       = 'A'
       INTO @re_image.
@@ -46,7 +46,7 @@ CLASS zcl_hhr_contpe_signature_mgr IMPLEMENTATION.
 
   METHOD validate_signature.
     SELECT SINGLE @abap_true
-      FROM zhr_contpe_signatures
+      FROM zhr_contpe_sign
       WHERE signature_id = @pi_signature_id
         AND status       = 'A'
       INTO @re_valid.

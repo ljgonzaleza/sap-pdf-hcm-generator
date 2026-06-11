@@ -64,14 +64,14 @@ CLASS zcl_hhr_contpe_validator IMPLEMENTATION.
 
   METHOD validate_template_exists.
     SELECT SINGLE @abap_true
-      FROM zhr_contpe_templates
+      FROM zhr_contpe_tpl
       WHERE template_id = @pi_template_id
       INTO @re_valid.
   ENDMETHOD.
 
   METHOD validate_active_version.
     SELECT SINGLE @abap_true
-      FROM zhr_contpe_tpl_ver
+      FROM zhr_contpe_tver
       WHERE template_id = @pi_template_id
         AND spras       = @pi_language
         AND status      = 'A'

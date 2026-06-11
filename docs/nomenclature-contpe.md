@@ -28,11 +28,11 @@ Z + H + HR + <TIPO> + CONTPE + _ + <NNN>
 | Tipo | Patrón | Ejemplo |
 |------|--------|---------|
 | Paquete | `ZHR_CONTPE` | `ZHR_CONTPE` |
-| Tabla | `ZHR_CONTPE_<SUF>` | `ZHR_CONTPE_TEMPLATES` |
+| Tabla | `ZHR_CONTPE_<SUF>` | `ZHR_CONTPE_TPL` |
 | Elemento dato | `ZDE_CONTPE_<SUF>` | `ZDE_CONTPE_TPL_ID` |
 | Dominio | `ZDO_CONTPE_<SUF>` | `ZDO_CONTPE_STATUS` |
-| Estructura | `ZHR_CONTPE_S_<SUF>` | `ZHR_CONTPE_S_FORM_DATA` |
-| Tabla interna | `ZHR_CONTPE_TT_<SUF>` | `ZHR_CONTPE_TT_PERNR` |
+| Estructura | `ZHR_CONTPE_S_<SUF>` | `ZHR_CONTPE_S_FORM` |
+| Tabla interna | `ZHR_CONTPE_TT_<SUF>` | `ZHR_CONTPE_TTPER` |
 | Clase | `ZCL_HHR_CONTPE_<SUF>` | `ZCL_HHR_CONTPE_GENERATOR` |
 | Interface | `ZIF_HHR_CONTPE_<SUF>` | `ZIF_HHR_CONTPE_RENDERER` |
 | Excepción | `ZCX_HHR_CONTPE_<SUF>` | `ZCX_HHR_CONTPE_BASE_ERROR` |
@@ -67,14 +67,14 @@ Z + H + HR + <TIPO> + CONTPE + _ + <NNN>
 
 | Tabla | Descripción |
 |-------|-------------|
-| `ZHR_CONTPE_TEMPLATES` | Cabecera plantillas |
-| `ZHR_CONTPE_TPL_VER` | Versiones de plantilla |
-| `ZHR_CONTPE_FIELDMAP` | Mapeo placeholders |
-| `ZHR_CONTPE_FMAP_COL` | Columnas tablas repetitivas |
-| `ZHR_CONTPE_SIGNATURES` | Firmantes |
-| `ZHR_CONTPE_DOC_LOG` | Log documentos generados |
-| `ZHR_CONTPE_AUDIT` | Auditoría |
-| `ZHR_CONTPE_CONFIG` | Parámetros |
+| `ZHR_CONTPE_TPL` | Cabecera plantillas |
+| `ZHR_CONTPE_TVER` | Versiones de plantilla |
+| `ZHR_CONTPE_FMAP` | Mapeo placeholders |
+| `ZHR_CONTPE_FCOL` | Columnas tablas repetitivas |
+| `ZHR_CONTPE_SIGN` | Firmantes |
+| `ZHR_CONTPE_DLOG` | Log documentos generados |
+| `ZHR_CONTPE_AUD` | Auditoría |
+| `ZHR_CONTPE_CFG` | Parámetros |
 | `ZHR_CONTPE_LOGOS` | Logos corporativos |
 | `ZHR_CONTPE_STYLES` | Estilos corporativos |
 

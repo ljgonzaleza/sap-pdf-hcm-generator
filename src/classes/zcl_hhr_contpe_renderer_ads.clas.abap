@@ -29,13 +29,13 @@ CLASS zcl_hhr_contpe_renderer_ads DEFINITION
         pi_html          TYPE string
         pi_signature_img TYPE xstring OPTIONAL
         pi_logo_img      TYPE xstring OPTIONAL
-        ps_metadata      TYPE zhr_contpe_s_pdf_metadata OPTIONAL
+        ps_metadata      TYPE zhr_contpe_s_pdf OPTIONAL
       RETURNING
-        VALUE(rs_form_data) TYPE zhr_contpe_s_form_data.
+        VALUE(rs_form_data) TYPE zhr_contpe_s_form.
 
     METHODS execute_fp_job
       IMPORTING
-        is_form_data TYPE zhr_contpe_s_form_data
+        is_form_data TYPE zhr_contpe_s_form
         iv_form_name TYPE fpname
       RETURNING
         VALUE(re_pdf) TYPE xstring

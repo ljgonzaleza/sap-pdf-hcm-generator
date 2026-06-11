@@ -1,7 +1,7 @@
 *&============================================================*
 *& Report  ZHHRDCONTPE_002
 *&============================================================*
-*& Descripción: CONTPE - Carga catálogo básico ZHR_CONTPE_FIELDMAP
+*& Descripción: CONTPE - Carga catálogo básico ZHR_CONTPE_FMAP
 *& Fecha Creación = 11.06.2026
 *& Empresa      = LATAM
 *&============================================================*
@@ -48,7 +48,7 @@ START-OF-SELECTION.
 
   LOOP AT lt_seed ASSIGNING FIELD-SYMBOL(<ls_seed>).
     SELECT SINGLE @abap_true
-      FROM zhr_contpe_fieldmap
+      FROM zhr_contpe_fmap
       WHERE placeholder = @<ls_seed>-placeholder
         AND spras       = @lv_spras
       INTO @DATA(lv_exists).
@@ -57,7 +57,7 @@ START-OF-SELECTION.
       CONTINUE.
     ENDIF.
 
-    INSERT zhr_contpe_fieldmap FROM VALUE #(
+    INSERT zhr_contpe_fmap FROM VALUE #(
       placeholder    = <ls_seed>-placeholder
       spras          = lv_spras
       description    = <ls_seed>-description

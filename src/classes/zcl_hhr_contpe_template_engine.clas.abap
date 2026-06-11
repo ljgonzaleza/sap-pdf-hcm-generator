@@ -49,7 +49,7 @@ CLASS zcl_hhr_contpe_template_engine IMPLEMENTATION.
 
   METHOD load_active_content.
     SELECT SINGLE content
-      FROM zhr_contpe_tpl_ver
+      FROM zhr_contpe_tver
       WHERE template_id = @pi_template_id
         AND spras       = @pi_language
         AND status      = 'A'

@@ -1,7 +1,7 @@
 *&============================================================*
 *& Report  ZHHRDCONTPE_001
 *&============================================================*
-*& Descripción: CONTPE - Carga inicial parámetros ZHR_CONTPE_CONFIG
+*& Descripción: CONTPE - Carga inicial parámetros ZHR_CONTPE_CFG
 *& Fecha Creación = 11.06.2026
 *& Empresa      = LATAM
 *&============================================================*
@@ -42,7 +42,7 @@ START-OF-SELECTION.
 
   LOOP AT lt_seed ASSIGNING FIELD-SYMBOL(<ls_seed>).
     SELECT SINGLE @abap_true
-      FROM zhr_contpe_config
+      FROM zhr_contpe_cfg
       WHERE param_key = @<ls_seed>-param_key
       INTO @DATA(lv_exists).
 
@@ -50,7 +50,7 @@ START-OF-SELECTION.
       CONTINUE.
     ENDIF.
 
-    INSERT zhr_contpe_config FROM VALUE #(
+    INSERT zhr_contpe_cfg FROM VALUE #(
       param_key   = <ls_seed>-param_key
       param_value = <ls_seed>-param_value
       description = <ls_seed>-description

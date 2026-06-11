@@ -3,16 +3,14 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <DD40V>
-    <TYPENAME>ZHR_CONTPE_TT_PERNR</TYPENAME>
+    <TYPENAME>ZHR_CONTPE_TTDLOG</TYPENAME>
     <DDLANGUAGE>S</DDLANGUAGE>
-    <ROWTYPE>PERSNO</ROWTYPE>
-    <ROWKIND>E</ROWKIND>
-    <DATATYPE>NUMC</DATATYPE>
-    <LENG>000008</LENG>
+    <ROWTYPE>ZHR_CONTPE_S_DLOG</ROWTYPE>
+    <ROWKIND>S</ROWKIND>
     <ACCESSMODE>T</ACCESSMODE>
     <KEYDEF>D</KEYDEF>
     <KEYKIND>N</KEYKIND>
-    <DDTEXT>CONTPE - Tabla interna lista PERNR</DDTEXT>
+    <DDTEXT>CONTPE - Tabla interna log documentos</DDTEXT>
    </DD40V>
   </asx:values>
  </asx:abap>

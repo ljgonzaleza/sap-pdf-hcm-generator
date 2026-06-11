@@ -3,14 +3,16 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <DD40V>
-    <TYPENAME>ZHR_CONTPE_TT_DOC_LOG</TYPENAME>
+    <TYPENAME>ZHR_CONTPE_TTPLH</TYPENAME>
     <DDLANGUAGE>S</DDLANGUAGE>
-    <ROWTYPE>ZHR_CONTPE_S_DOC_LOG</ROWTYPE>
-    <ROWKIND>S</ROWKIND>
+    <ROWTYPE>ZDE_CONTPE_PLACEHOLDER</ROWTYPE>
+    <ROWKIND>E</ROWKIND>
+    <DATATYPE>CHAR</DATATYPE>
+    <LENG>000040</LENG>
     <ACCESSMODE>T</ACCESSMODE>
     <KEYDEF>D</KEYDEF>
     <KEYKIND>N</KEYKIND>
-    <DDTEXT>CONTPE - Tabla interna log documentos</DDTEXT>
+    <DDTEXT>CONTPE - Tabla interna placeholders</DDTEXT>
    </DD40V>
   </asx:values>
  </asx:abap>

@@ -6,7 +6,7 @@
 *& Empresa      = LATAM
 *&============================================================*
 *& Prerrequisito: crear y activar form ZHR_CONTPE_F_001 en SFP
-*& Interface import: IS_FORM_DATA TYPE ZHR_CONTPE_S_FORM_DATA
+*& Interface import: IS_FORM_DATA TYPE ZHR_CONTPE_S_FORM
 *&============================================================*
 REPORT zhhrcontpe_003.
 
@@ -20,7 +20,7 @@ PARAMETERS p_down AS CHECKBOX DEFAULT 'X'.
 *--------------------------------------------------------------------*
 START-OF-SELECTION.
 
-  DATA(ls_metadata) = VALUE zhr_contpe_s_pdf_metadata(
+  DATA(ls_metadata) = VALUE zhr_contpe_s_pdf(
     pernr          = '00000001'
     template_id    = 'CERT01'
     version        = '0001'

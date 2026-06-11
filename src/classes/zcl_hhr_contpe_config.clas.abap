@@ -1,7 +1,7 @@
 *&---------------------------------------------------------------------*
 *& Clase   ZCL_HHR_CONTPE_CONFIG
 *&---------------------------------------------------------------------*
-*& Descripción: CONTPE - Lectura parámetros ZHR_CONTPE_CONFIG
+*& Descripción: CONTPE - Lectura parámetros ZHR_CONTPE_CFG
 *& Empresa     LATAM
 *&---------------------------------------------------------------------*
 CLASS zcl_hhr_contpe_config DEFINITION
@@ -66,11 +66,11 @@ CLASS zcl_hhr_contpe_config IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD load_cache.
-    DATA lt_config TYPE STANDARD TABLE OF zhr_contpe_config.
+    DATA lt_config TYPE STANDARD TABLE OF zhr_contpe_cfg.
 
     SELECT param_key
            param_value
-      FROM zhr_contpe_config
+      FROM zhr_contpe_cfg
       INTO CORRESPONDING FIELDS OF TABLE @lt_config.
 
     CLEAR mt_cache.
