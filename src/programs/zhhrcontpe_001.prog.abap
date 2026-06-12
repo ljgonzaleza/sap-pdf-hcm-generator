@@ -30,7 +30,11 @@ DATA(lt_seed) = VALUE tt_seed_config(
   ( param_key = 'ARCHIVELINK_OBJECT_TYPE' param_value = 'Z_PREL_PDF'   description = 'Object type ArchiveLink' )
   ( param_key = 'RETENTION_YEARS'         param_value = '7'            description = 'Años retención documentos' )
   ( param_key = 'DIGITAL_SIGN_ENABLED'    param_value = 'N'            description = 'Firma digital habilitada' )
-  ( param_key = 'DIGITAL_SIGN_PROVIDER'   param_value = ''             description = 'Proveedor firma digital' ) ).
+  ( param_key = 'DIGITAL_SIGN_PROVIDER'   param_value = ''             description = 'Proveedor firma digital' )
+  ( param_key = 'FIORI_LAUNCHPAD_URL'     param_value = ''             description = 'URL base Fiori Launchpad (sin #intent)' )
+  ( param_key = 'FIORI_LAUNCHPAD_HOST'    param_value = ''             description = 'Host Fiori si URL vacía (default SY-HOST)' )
+  ( param_key = 'FIORI_LAUNCHPAD_PORT'    param_value = ''             description = 'Puerto Fiori (44300 HTTPS / 8000 HTTP)' )
+  ( param_key = 'FIORI_LAUNCHPAD_HTTPS'   param_value = 'X'            description = 'Usar HTTPS para URL Fiori (X/N)' ) ).
 
 *--------------------------------------------------------------------*
 * Inicio de procesamiento

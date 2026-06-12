@@ -102,21 +102,31 @@ CLASS zcl_hhr_contpe_fiori_launcher IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD get_launchpad_base_url.
-    DATA(lv_prefix) = zcl_hhr_contpe_config=>get_instance( )->get_parameter( 'FIORI_LAUNCHPAD_URL' ).
+    DATA(lv_cfg_url) = zcl_hhr_contpe_config=>get_instance( )->get_parameter( 'FIORI_LAUNCHPAD_URL' ).
 
-    IF lv_prefix IS INITIAL.
-      CALL FUNCTION 'RH_GET_URL_PREFIX'
-        IMPORTING
-          url_prefix = lv_prefix
-        EXCEPTIONS
-          OTHERS = 1.
+    IF lv_cfg_url IS NOT INITIAL.
+      IF lv_cfg_url CS lc_flp_path.
+        re_base_url = lv_cfg_url.
+      ELSE.
+        re_base_url = |{ lv_cfg_url }{ lc_flp_path }?sap-client={ sy-mandt }&sap-language={ sy-langu }|.
+      ENDIF.
+      RETURN.
     ENDIF.
 
-    IF lv_prefix IS NOT INITIAL.
-      re_base_url = |{ lv_prefix }{ lc_flp_path }?sap-client={ sy-mandt }&sap-language={ sy-langu }|.
-    ELSE.
-      re_base_url = |http://{ sy-host }:8000{ lc_flp_path }?sap-client={ sy-mandt }&sap-language={ sy-langu }|.
+    DATA(lv_host) = zcl_hhr_contpe_config=>get_instance( )->get_parameter( 'FIORI_LAUNCHPAD_HOST' ).
+    IF lv_host IS INITIAL.
+      lv_host = sy-host.
     ENDIF.
+
+    DATA(lv_port) = zcl_hhr_contpe_config=>get_instance( )->get_parameter( 'FIORI_LAUNCHPAD_PORT' ).
+    DATA(lv_https) = zcl_hhr_contpe_config=>get_instance( )->get_parameter( 'FIORI_LAUNCHPAD_HTTPS' ).
+    DATA(lv_proto) = COND string( WHEN lv_https = 'X' OR lv_https = 'TRUE' THEN 'https' ELSE 'http' ).
+
+    IF lv_port IS INITIAL.
+      lv_port = COND string( WHEN lv_proto = 'https' THEN '44300' ELSE '8000' ).
+    ENDIF.
+
+    re_base_url = |{ lv_proto }://{ lv_host }:{ lv_port }{ lc_flp_path }?sap-client={ sy-mandt }&sap-language={ sy-langu }|.
   ENDMETHOD.
 
   METHOD build_fiori_url.
