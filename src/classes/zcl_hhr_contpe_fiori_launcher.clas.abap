@@ -165,9 +165,18 @@ CLASS zcl_hhr_contpe_fiori_launcher IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD navigate_to_url.
+    IF strlen( pi_url ) > strlen( VALUE char255( ) ).
+      RAISE EXCEPTION TYPE zcx_hhr_contpe_gen_error
+        EXPORTING
+          textid = zcx_hhr_contpe_gen_error=>zhhr_contpe_fiori_nav_error.
+    ENDIF.
+
+    DATA lv_url TYPE char255.
+    lv_url = pi_url.
+
     CALL FUNCTION 'CALL_BROWSER'
       EXPORTING
-        url = pi_url
+        url = lv_url
       EXCEPTIONS
         OTHERS = 1.
 
