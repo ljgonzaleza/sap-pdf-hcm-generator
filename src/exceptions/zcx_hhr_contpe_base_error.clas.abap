@@ -52,34 +52,39 @@ CLASS zcx_hhr_contpe_base_error IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD display_message.
-    DATA(lv_msgv1) TYPE string.
-    DATA(lv_msgv2) TYPE string.
-    DATA(lv_msgv3) TYPE string.
-    DATA(lv_msgv4) TYPE string.
+    DATA: lv_msgv1 TYPE string,
+          lv_msgv2 TYPE string,
+          lv_msgv3 TYPE string,
+          lv_msgv4 TYPE string.
+
+    FIELD-SYMBOLS: <attr1> TYPE any,
+                   <attr2> TYPE any,
+                   <attr3> TYPE any,
+                   <attr4> TYPE any.
 
     IF if_t100_message~t100key-attr1 IS NOT INITIAL.
-      ASSIGN me->( if_t100_message~t100key-attr1 ) TO FIELD-SYMBOL(<attr1>).
+      ASSIGN me->( if_t100_message~t100key-attr1 ) TO <attr1>.
       IF sy-subrc = 0.
         lv_msgv1 = |{ <attr1> }|.
       ENDIF.
     ENDIF.
 
     IF if_t100_message~t100key-attr2 IS NOT INITIAL.
-      ASSIGN me->( if_t100_message~t100key-attr2 ) TO FIELD-SYMBOL(<attr2>).
+      ASSIGN me->( if_t100_message~t100key-attr2 ) TO <attr2>.
       IF sy-subrc = 0.
         lv_msgv2 = |{ <attr2> }|.
       ENDIF.
     ENDIF.
 
     IF if_t100_message~t100key-attr3 IS NOT INITIAL.
-      ASSIGN me->( if_t100_message~t100key-attr3 ) TO FIELD-SYMBOL(<attr3>).
+      ASSIGN me->( if_t100_message~t100key-attr3 ) TO <attr3>.
       IF sy-subrc = 0.
         lv_msgv3 = |{ <attr3> }|.
       ENDIF.
     ENDIF.
 
     IF if_t100_message~t100key-attr4 IS NOT INITIAL.
-      ASSIGN me->( if_t100_message~t100key-attr4 ) TO FIELD-SYMBOL(<attr4>).
+      ASSIGN me->( if_t100_message~t100key-attr4 ) TO <attr4>.
       IF sy-subrc = 0.
         lv_msgv4 = |{ <attr4> }|.
       ENDIF.
