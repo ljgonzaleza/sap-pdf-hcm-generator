@@ -66,7 +66,7 @@ CLASS zcl_hhr_contpe_fiori_launcher IMPLEMENTATION.
   METHOD launch_templates.
     DATA(l_url) = build_fiori_url(
       pi_semantic_object = lc_semantic-template_obj
-      pi_semantic_action = lc_semantic-manage
+      pi_semantic_action = lc_action-manage
       pi_params          = pi_params ).
 
     navigate_to_url( pi_url = l_url ).
@@ -75,7 +75,7 @@ CLASS zcl_hhr_contpe_fiori_launcher IMPLEMENTATION.
   METHOD launch_generate.
     DATA(l_url) = build_fiori_url(
       pi_semantic_object = lc_semantic-document_obj
-      pi_semantic_action = lc_semantic-generate
+      pi_semantic_action = lc_action-generate
       pi_params          = pi_params ).
 
     navigate_to_url( pi_url = l_url ).
@@ -84,7 +84,7 @@ CLASS zcl_hhr_contpe_fiori_launcher IMPLEMENTATION.
   METHOD launch_history.
     DATA(l_url) = build_fiori_url(
       pi_semantic_object = lc_semantic-document_obj
-      pi_semantic_action = lc_semantic-displayhistory
+      pi_semantic_action = lc_action-displayhistory
       pi_params          = pi_params ).
 
     navigate_to_url( pi_url = l_url ).
