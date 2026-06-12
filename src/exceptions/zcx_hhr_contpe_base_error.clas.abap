@@ -34,7 +34,7 @@ CLASS zcx_hhr_contpe_base_error DEFINITION
         error_message TYPE string OPTIONAL.
 
   PROTECTED SECTION.
-    DATA if_t100_dyn_msg~msg_type TYPE symsgty VALUE 'E'.
+    DATA msg_type TYPE symsgty VALUE 'E'.
   PRIVATE SECTION.
 ENDCLASS.
 
