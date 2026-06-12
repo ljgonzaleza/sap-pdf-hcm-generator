@@ -125,13 +125,7 @@ CLASS zcl_hhr_contpe_fiori_launcher IMPLEMENTATION.
       EXPORTING
         document = l_url
       EXCEPTIONS
-        cntl_error         = 1
-        error_no_gui       = 2
-        bad_parameter      = 3
-        file_not_found     = 4
-        pathname_not_found = 5
-        unknown_error      = 6
-        OTHERS             = 7.
+        OTHERS = 1.
 
     IF sy-subrc <> 0.
       RAISE EXCEPTION TYPE zcx_hhr_contpe_gen_error
