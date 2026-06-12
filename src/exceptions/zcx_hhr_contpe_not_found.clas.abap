@@ -39,9 +39,9 @@ CLASS zcx_hhr_contpe_not_found IMPLEMENTATION.
 
     CLEAR me->textid.
     IF textid IS INITIAL.
-      if_t100_message~t100key = zhhr_contpe_not_found.
+      me->t100key = zhhr_contpe_not_found.
     ELSE.
-      if_t100_message~t100key = textid.
+      me->t100key = textid.
     ENDIF.
   ENDMETHOD.
 
