@@ -11,9 +11,6 @@ CLASS zcx_hhr_contpe_base_error DEFINITION
 
   PUBLIC SECTION.
     INTERFACES if_t100_message.
-    INTERFACES if_t100_dyn_msg.
-
-    ALIASES msg_type FOR if_t100_dyn_msg~msg_type.
 
     CONSTANTS:
       BEGIN OF zhhr_contpe_base_error,
@@ -33,8 +30,9 @@ CLASS zcx_hhr_contpe_base_error DEFINITION
         previous      LIKE previous OPTIONAL
         error_message TYPE string OPTIONAL.
 
+    METHODS display_message.
+
   PROTECTED SECTION.
-    DATA msg_type TYPE symsgty VALUE 'E'.
   PRIVATE SECTION.
 ENDCLASS.
 
@@ -53,7 +51,7 @@ CLASS zcx_hhr_contpe_base_error IMPLEMENTATION.
     ENDIF.
   ENDMETHOD.
 
-  METHOD if_t100_dyn_msg~get_text.
+  METHOD display_message.
     DATA(lv_msgv1) TYPE string.
     DATA(lv_msgv2) TYPE string.
     DATA(lv_msgv3) TYPE string.
@@ -88,14 +86,9 @@ CLASS zcx_hhr_contpe_base_error IMPLEMENTATION.
     ENDIF.
 
     MESSAGE ID if_t100_message~t100key-msgid
-            TYPE if_t100_dyn_msg~msg_type
+            TYPE 'E'
             NUMBER if_t100_message~t100key-msgno
-            WITH lv_msgv1 lv_msgv2 lv_msgv3 lv_msgv4
-            INTO rv_text.
-  ENDMETHOD.
-
-  METHOD if_t100_dyn_msg~get_longtext.
-    rv_text = if_t100_dyn_msg~get_text( ).
+            WITH lv_msgv1 lv_msgv2 lv_msgv3 lv_msgv4.
   ENDMETHOD.
 
 ENDCLASS.

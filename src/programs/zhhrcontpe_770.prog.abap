@@ -35,6 +35,6 @@ START-OF-SELECTION.
   TRY.
       zcl_hhr_contpe_fiori_launcher=>launch_templates( pi_params = l_params ).
     CATCH zcx_hhr_contpe_gen_error INTO DATA(lx_error).
-      MESSAGE lx_error.
+      lx_error->display_message( ).
       LEAVE PROGRAM.
   ENDTRY.
