@@ -22,15 +22,21 @@ CLASS zcl_hhr_contpe_fiori_launcher DEFINITION
 
     CLASS-METHODS launch_templates
       IMPORTING
-        pi_params TYPE ty_launch_params OPTIONAL.
+        pi_params TYPE ty_launch_params OPTIONAL
+      RAISING
+        zcx_hhr_contpe_gen_error.
 
     CLASS-METHODS launch_generate
       IMPORTING
-        pi_params TYPE ty_launch_params OPTIONAL.
+        pi_params TYPE ty_launch_params OPTIONAL
+      RAISING
+        zcx_hhr_contpe_gen_error.
 
     CLASS-METHODS launch_history
       IMPORTING
-        pi_params TYPE ty_launch_params OPTIONAL.
+        pi_params TYPE ty_launch_params OPTIONAL
+      RAISING
+        zcx_hhr_contpe_gen_error.
 
   PROTECTED SECTION.
   PRIVATE SECTION.
@@ -43,7 +49,12 @@ CLASS zcl_hhr_contpe_fiori_launcher DEFINITION
         manage         TYPE string VALUE 'manage',
         generate       TYPE string VALUE 'generate',
         displayhistory TYPE string VALUE 'displayHistory',
-      END OF lc_action.
+      END OF lc_action,
+      lc_flp_path TYPE string VALUE '/sap/bc/ui2/flp'.
+
+    CLASS-METHODS get_launchpad_base_url
+      RETURNING
+        VALUE(re_base_url) TYPE string.
 
     CLASS-METHODS build_fiori_url
       IMPORTING
@@ -90,40 +101,63 @@ CLASS zcl_hhr_contpe_fiori_launcher IMPLEMENTATION.
     navigate_to_url( pi_url = l_url ).
   ENDMETHOD.
 
-  METHOD build_fiori_url.
-    re_url = |#SemanticObject={ pi_semantic_object };SemanticAction={ pi_semantic_action }|.
+  METHOD get_launchpad_base_url.
+    DATA(lv_prefix) = zcl_hhr_contpe_config=>get_instance( )->get_parameter( 'FIORI_LAUNCHPAD_URL' ).
 
-    IF pi_params-pernr IS NOT INITIAL.
-      re_url = |{ re_url }?PERNR={ pi_params-pernr ALPHA = OUT }|.
+    IF lv_prefix IS INITIAL.
+      CALL FUNCTION 'RH_GET_URL_PREFIX'
+        IMPORTING
+          url_prefix = lv_prefix
+        EXCEPTIONS
+          OTHERS = 1.
     ENDIF.
 
-    IF pi_params-template_id IS NOT INITIAL.
-      re_url = |{ re_url }{ COND string( WHEN pi_params-pernr IS INITIAL THEN '?' ELSE '&' ) }TEMPLATE_ID={ pi_params-template_id }|.
-    ENDIF.
-
-    IF pi_params-pernr_from IS NOT INITIAL.
-      re_url = |{ re_url }{ COND string( WHEN re_url CA '?' THEN '&' ELSE '?' ) }PERNR_FROM={ pi_params-pernr_from ALPHA = OUT }|.
-    ENDIF.
-
-    IF pi_params-pernr_to IS NOT INITIAL.
-      re_url = |{ re_url }&PERNR_TO={ pi_params-pernr_to ALPHA = OUT }|.
-    ENDIF.
-
-    IF pi_params-date_from IS NOT INITIAL.
-      re_url = |{ re_url }&DATE_FROM={ pi_params-date_from }|.
-    ENDIF.
-
-    IF pi_params-date_to IS NOT INITIAL.
-      re_url = |{ re_url }&DATE_TO={ pi_params-date_to }|.
+    IF lv_prefix IS NOT INITIAL.
+      re_base_url = |{ lv_prefix }{ lc_flp_path }?sap-client={ sy-mandt }&sap-language={ sy-langu }|.
+    ELSE.
+      re_base_url = |http://{ sy-host }:8000{ lc_flp_path }?sap-client={ sy-mandt }&sap-language={ sy-langu }|.
     ENDIF.
   ENDMETHOD.
 
-  METHOD navigate_to_url.
-    DATA(l_url) = pi_url.
+  METHOD build_fiori_url.
+    DATA(lv_intent) = |#{ pi_semantic_object }-{ pi_semantic_action }|.
+    DATA(lv_query) = ``.
 
-    CALL METHOD cl_gui_frontend_services=>execute
+    IF pi_params-pernr IS NOT INITIAL.
+        lv_query = |{ lv_query }{ COND string( WHEN lv_query IS INITIAL THEN '' ELSE '&' ) }PERNR={ pi_params-pernr ALPHA = OUT }|.
+      ENDIF.
+
+      IF pi_params-template_id IS NOT INITIAL.
+        lv_query = |{ lv_query }{ COND string( WHEN lv_query IS INITIAL THEN '' ELSE '&' ) }TEMPLATE_ID={ pi_params-template_id }|.
+      ENDIF.
+
+      IF pi_params-pernr_from IS NOT INITIAL.
+        lv_query = |{ lv_query }{ COND string( WHEN lv_query IS INITIAL THEN '' ELSE '&' ) }PERNR_FROM={ pi_params-pernr_from ALPHA = OUT }|.
+      ENDIF.
+
+      IF pi_params-pernr_to IS NOT INITIAL.
+        lv_query = |{ lv_query }{ COND string( WHEN lv_query IS INITIAL THEN '' ELSE '&' ) }PERNR_TO={ pi_params-pernr_to ALPHA = OUT }|.
+      ENDIF.
+
+      IF pi_params-date_from IS NOT INITIAL.
+        lv_query = |{ lv_query }{ COND string( WHEN lv_query IS INITIAL THEN '' ELSE '&' ) }DATE_FROM={ pi_params-date_from }|.
+      ENDIF.
+
+    IF pi_params-date_to IS NOT INITIAL.
+      lv_query = |{ lv_query }{ COND string( WHEN lv_query IS INITIAL THEN '' ELSE '&' ) }DATE_TO={ pi_params-date_to }|.
+    ENDIF.
+
+    IF lv_query IS NOT INITIAL.
+      lv_intent = |{ lv_intent }?{ lv_query }|.
+    ENDIF.
+
+    re_url = |{ get_launchpad_base_url( ) }{ lv_intent }|.
+  ENDMETHOD.
+
+  METHOD navigate_to_url.
+    CALL FUNCTION 'CALL_BROWSER'
       EXPORTING
-        document = l_url
+        url = pi_url
       EXCEPTIONS
         OTHERS = 1.
 
