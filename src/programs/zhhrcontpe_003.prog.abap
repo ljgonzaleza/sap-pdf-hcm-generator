@@ -90,6 +90,6 @@ START-OF-SELECTION.
       ENDIF.
 
     CATCH zcx_hhr_contpe_render_error INTO DATA(lx_render).
-      MESSAGE lx_render TYPE 'E'.
+      MESSAGE lx_render.
       RETURN.
   ENDTRY.

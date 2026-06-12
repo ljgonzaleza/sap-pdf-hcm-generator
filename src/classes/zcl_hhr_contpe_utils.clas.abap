@@ -77,10 +77,22 @@ CLASS zcl_hhr_contpe_utils IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD calculate_hash.
+    CONSTANTS lc_hex TYPE c LENGTH 16 VALUE '0123456789ABCDEF'.
     TRY.
-        re_hash = cl_abap_hmac=>calculate_hash_for_raw(
-          if_algorithm = if_abap_hmac=>co_sha256
-          if_data      = pi_pdf ).
+        DATA(lo_digest) = cl_abap_message_digest=>get_instance( 'SHA256' ).
+        lo_digest->update( pi_pdf ).
+        DATA(lv_hash_raw) = lo_digest->get_hash( ).
+        DATA(lv_len) = xstrlen( lv_hash_raw ).
+        CLEAR re_hash.
+        DO lv_len TIMES.
+          DATA(lv_off) = sy-index - 1.
+          DATA(lv_byte) TYPE x LENGTH 1.
+          lv_byte = lv_hash_raw+lv_off(1).
+          DATA(lv_val) = CONV i( lv_byte ).
+          DATA(lv_hi) = lv_val DIV 16.
+          DATA(lv_lo) = lv_val MOD 16.
+          re_hash = re_hash && lc_hex+lv_hi(1) && lc_hex+lv_lo(1).
+        ENDDO.
       CATCH cx_root.
         CLEAR re_hash.
     ENDTRY.
@@ -104,15 +116,13 @@ CLASS zcl_hhr_contpe_utils IMPLEMENTATION.
 
   METHOD binary_to_xstring.
     CALL FUNCTION 'SCMS_BINARY_TO_XSTRING'
-      EXPORTING
-        input_length  = lines( it_binary ) * 255
-      IMPORTING
-        buffer        = re_xstring
       TABLES
-        binary_tab    = it_binary
+        binary_tab = it_binary
+      IMPORTING
+        buffer     = re_xstring
       EXCEPTIONS
-        failed        = 1
-        OTHERS        = 2.
+        failed     = 1
+        OTHERS     = 2.
     IF sy-subrc <> 0.
       CLEAR re_xstring.
     ENDIF.

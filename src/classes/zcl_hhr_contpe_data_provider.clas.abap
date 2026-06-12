@@ -71,10 +71,11 @@ CLASS zcl_hhr_contpe_data_provider IMPLEMENTATION.
 
   METHOD get_field_values.
     DATA lt_fieldmap TYPE STANDARD TABLE OF zhr_contpe_fmap.
+    DATA ls_map TYPE zhr_contpe_fmap.
 
     IF pt_placeholders IS SUPPLIED AND lines( pt_placeholders ) > 0.
       LOOP AT pt_placeholders ASSIGNING FIELD-SYMBOL(<ls_placeholder>).
-        DATA(ls_map) = read_fieldmap(
+        ls_map = read_fieldmap(
           pi_placeholder = CONV zde_contpe_placeholder( <ls_placeholder> )
           pi_language    = pi_language ).
         INSERT VALUE #(
@@ -213,10 +214,13 @@ CLASS zcl_hhr_contpe_data_provider IMPLEMENTATION.
       TRANSLATE re_value TO UPPER CASE.
     ENDIF.
 
-    IF is_fieldmap-data_type = 'D' AND is_fieldmap-format_pattern IS NOT INITIAL.
-      re_value = zcl_hhr_contpe_utils=>format_date(
-        pi_date   = pi_raw
-        pi_format = is_fieldmap-format_pattern ).
+    IF is_fieldmap-data_type = 'D' AND is_fieldmap-format_pattern IS NOT INITIAL AND pi_raw IS NOT INITIAL.
+      DATA(lv_date) = CONV datum( pi_raw ).
+      IF lv_date IS NOT INITIAL.
+        re_value = zcl_hhr_contpe_utils=>format_date(
+          pi_date   = lv_date
+          pi_format = is_fieldmap-format_pattern ).
+      ENDIF.
     ENDIF.
   ENDMETHOD.
 
